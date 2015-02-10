@@ -73,10 +73,10 @@ Net::HTTP.start(HOST,80){|http|
   res = http.post(CGI,data,header)
   url = res.response.body
   IO.popen("pbcopy","r+"){|io|
-    io.write url
+    io.write "#{url}.png" 
     io.close
   }
-  system "open #{url}"
+#  system "open #{url}"
 
   # save id
   newid = res.response['X-Gyazo-Id']
